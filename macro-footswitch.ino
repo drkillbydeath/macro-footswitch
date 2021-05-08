@@ -43,67 +43,76 @@ void setup() {
   bleKeyboard.begin();
 }
 
-  void loop() {
+void macro_keys(key_name){
+  bleKeyboard.press(KEY_LEFT_CTRL);
+  bleKeyboard.press(KEY_LEFT_ALT);
+  bleKeyboard.press(KEY_LEFT_SHIFT);
+  bleKeyboard.press(key_name);
+  delay(100);
+  bleKeyboard.releaseAll();
+  delay(1000);
+}
+void loop() {
   buttonState0=digitalRead(button0);
   buttonState1=digitalRead(button1);
   buttonState2=digitalRead(button2);
   buttonState3=digitalRead(button3);
   buttonState4=digitalRead(button4);
   buttonState5=digitalRead(button5);
-  
+
   //Macro-1
-  if(bleKeyboard.isConnected() && buttonState0 == HIGH && buttonState1 == HIGH && buttonState2 == LOW && buttonState3 == LOW && buttonState4 == LOW && buttonState5 == LOW) {
-    Serial.println("Sending Ctrl+Alt+F1...");
-    bleKeyboard.press(KEY_LEFT_CTRL);
-    bleKeyboard.press(KEY_LEFT_ALT);
-    bleKeyboard.press(KEY_LEFT_SHIFT);
-    bleKeyboard.press(KEY_F1);
-    delay(100);
-    bleKeyboard.releaseAll();
-    delay(1000);
+  if(bleKeyboard.isConnected() 
+     && buttonState0 == HIGH 
+     && buttonState1 == HIGH 
+     && buttonState2 == LOW 
+     && buttonState3 == LOW 
+     && buttonState4 == LOW 
+     && buttonState5 == LOW) {
+    Serial.println("Sending Ctrl+Alt+Shift+F1...");
+    macro_keys(KEY_F1);
   } 
-   //Macro-2
-  if(bleKeyboard.isConnected() && buttonState0 == HIGH && buttonState1 == LOW && buttonState2 == HIGH && buttonState3 == LOW && buttonState4 == LOW && buttonState5 == LOW) {
-    Serial.println("Sending Ctrl+Alt+F2...");
-    bleKeyboard.press(KEY_LEFT_CTRL);
-    bleKeyboard.press(KEY_LEFT_ALT);
-    bleKeyboard.press(KEY_LEFT_SHIFT);
-    bleKeyboard.press(KEY_F2);
-    delay(100);
-    bleKeyboard.releaseAll();
-    delay(1000);
+  //Macro-2
+  if(bleKeyboard.isConnected() 
+     && buttonState0 == HIGH 
+     && buttonState1 == LOW 
+     && buttonState2 == HIGH 
+     && buttonState3 == LOW 
+     && buttonState4 == LOW 
+     && buttonState5 == LOW) {
+    Serial.println("Sending Ctrl+Alt+Shift+F2...");
+    macro_keys(KEY_F2);
   }
-   //Macro-3
- if (bleKeyboard.isConnected() && buttonState0 == HIGH && buttonState1 == LOW && buttonState2 == LOW && buttonState3 == HIGH && buttonState4 == LOW && buttonState5 == LOW) {
-    Serial.println("Sending Ctrl+Alt+F3...");
-    bleKeyboard.press(KEY_LEFT_CTRL);
-    bleKeyboard.press(KEY_LEFT_ALT);
-    bleKeyboard.press(KEY_LEFT_SHIFT);
-    bleKeyboard.press(KEY_F3);
-    delay(100);
-    bleKeyboard.releaseAll();
-    delay(1000);
+  //Macro-3
+  if (bleKeyboard.isConnected() 
+      && buttonState0 == HIGH 
+      && buttonState1 == LOW 
+      && buttonState2 == LOW 
+      && buttonState3 == HIGH 
+      && buttonState4 == LOW 
+      && buttonState5 == LOW) {
+    Serial.println("Sending Ctrl+Alt+Shift+F3...");
+    macro_keys(KEY_F3);
   }
-   //Macro-4
- if (bleKeyboard.isConnected() && buttonState0 == HIGH && buttonState1 == LOW && buttonState2 == LOW && buttonState3 == LOW && buttonState4 == HIGH && buttonState5 == LOW) {
-    Serial.println("Sending Ctrl+Alt+F4...");
-    bleKeyboard.press(KEY_LEFT_CTRL);
-    bleKeyboard.press(KEY_LEFT_ALT);
-    bleKeyboard.press(KEY_LEFT_SHIFT);
-    bleKeyboard.press(KEY_F4);
-    delay(100);
-    bleKeyboard.releaseAll();
-    delay(1000);
+  //Macro-4
+  if (bleKeyboard.isConnected() 
+      && buttonState0 == HIGH 
+      && buttonState1 == LOW 
+      && buttonState2 == LOW 
+      && buttonState3 == LOW 
+      && buttonState4 == HIGH 
+      && buttonState5 == LOW) {
+    Serial.println("Sending Ctrl+Alt+Shift+F4...");
+    macro_keys(KEY_F4);
   }
-   //Macro-5
- if (bleKeyboard.isConnected() && buttonState0 == HIGH && buttonState1 == LOW && buttonState2 == LOW && buttonState3 == LOW && buttonState4 == LOW && buttonState5 == HIGH) {
-    Serial.println("Sending Ctrl+Alt+F5...");
-    bleKeyboard.press(KEY_LEFT_CTRL);
-    bleKeyboard.press(KEY_LEFT_ALT);
-    bleKeyboard.press(KEY_LEFT_SHIFT);
-    bleKeyboard.press(KEY_F5);
-    delay(100);
-    bleKeyboard.releaseAll();
-    delay(1000);
- }
+  //Macro-5
+  if (bleKeyboard.isConnected() 
+      && buttonState0 == HIGH 
+      && buttonState1 == LOW 
+      && buttonState2 == LOW 
+      && buttonState3 == LOW 
+      && buttonState4 == LOW 
+      && buttonState5 == HIGH) {
+    Serial.println("Sending Ctrl+Alt+Shift+F5...");
+    macro_keys(KEY_F5);
+  }
 }
