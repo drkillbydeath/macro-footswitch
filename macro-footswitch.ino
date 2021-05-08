@@ -43,7 +43,7 @@ void setup() {
   bleKeyboard.begin();
 }
 
-void macro_keys(key_name){
+void macro_keys(uint8_t key_name){
   bleKeyboard.press(KEY_LEFT_CTRL);
   bleKeyboard.press(KEY_LEFT_ALT);
   bleKeyboard.press(KEY_LEFT_SHIFT);
