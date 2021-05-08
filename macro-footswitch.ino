@@ -1,7 +1,7 @@
-/********************************************************************
+/*********************************************************************
  * This is a 6 button BLE Macro Foot-Switch.                         * 
- * Button 1 sends the stored command from buttons 2-6 over Bluetooth. *
- * Just map the pins, set the macros, and go                          *
+ * Button 1 sends the stored command from buttons 2-6 over Bluetooth.*
+ * Just map the pins, set the macros, and go                         *
  *                                                                   *
  * Changing the name of the device, manufaturer, and initial battery *
  * level can be done at "BleKeyboard bleKeyboard" below              *
