@@ -10,8 +10,9 @@
  * will need to be installed from Github.                            *
  * https://github.com/T-vK/ESP32-BLE-Keyboard                        *
  ********************************************************************/
+#define USE_NIMBLE
 #include <BleKeyboard.h>
-BleKeyboard bleKeyboard("Macro Foot-Switch", "Daaan", 69); 
+BleKeyboard bleKeyboard("Macro Foot-Switch", "Daaaan", 69); 
 const int button0=36;    // set GPIO pins on ESP32. 
 int buttonState0=0;     // Keep state to 0
 
@@ -114,5 +115,52 @@ void loop() {
       && buttonState5 == HIGH) {
     Serial.println("Sending Ctrl+Alt+Shift+F5...");
     macro_keys(KEY_F5);
+  }
+
+  // 2 BUTTONS LATCHED
+
+  //Macro-6
+  if(bleKeyboard.isConnected()
+     && buttonState0 == HIGH
+     && buttonState1 == HIGH
+     && buttonState2 == HIGH
+     && buttonState3 == LOW
+     && buttonState4 == LOW
+     && buttonState5 == LOW) {
+    Serial.println("Sending Ctrl+Alt+Shift+F6...");
+    macro_keys(KEY_F6);
+  }
+  //Macro-7
+  if (bleKeyboard.isConnected()
+      && buttonState0 == HIGH
+      && buttonState1 == HIGH
+      && buttonState2 == LOW
+      && buttonState3 == HIGH
+      && buttonState4 == LOW
+      && buttonState5 == LOW) {
+    Serial.println("Sending Ctrl+Alt+Shift+F7...");
+    macro_keys(KEY_F7);
+  }
+  //Macro-8
+  if (bleKeyboard.isConnected()
+      && buttonState0 == HIGH
+      && buttonState1 == HIGH
+      && buttonState2 == LOW
+      && buttonState3 == LOW
+      && buttonState4 == HIGH
+      && buttonState5 == LOW) {
+    Serial.println("Sending Ctrl+Alt+Shift+F8...");
+    macro_keys(KEY_F8);
+  }
+  //Macro-9
+  if (bleKeyboard.isConnected()
+      && buttonState0 == HIGH
+      && buttonState1 == HIGH
+      && buttonState2 == LOW
+      && buttonState3 == LOW
+      && buttonState4 == LOW
+      && buttonState5 == HIGH) {
+    Serial.println("Sending Ctrl+Alt+Shift+F9...");
+    macro_keys(KEY_F9);
   }
 }
